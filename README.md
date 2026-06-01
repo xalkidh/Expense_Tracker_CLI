@@ -48,3 +48,6 @@ Selecting 1 prompts for an amount and a category.
 Selecting 2 displays a formatted summary breakdown per category.
 Selecting 3 creates an expenses.csv file in the project directory.
 Selecting 4 safely closes the program.
+
+### License
+This project is open-source and available under the MIT License.
