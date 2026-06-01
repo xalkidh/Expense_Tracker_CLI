@@ -96,7 +96,7 @@ def main():
         print("3. Export to CSV (Excel)")
         print("4. Exit")
         
-        choice = input("Select action (1, 2 or 3): ").strip()
+        choice = input("Select action (1, 2, 3 or 4): ").strip()
         
         if choice == "1":
             # Input Validation για το ποσό

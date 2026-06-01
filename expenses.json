@@ -8,5 +8,10 @@
         "amount": 2.0,
         "category": "Misc",
         "date": "2026-06-01"
+    },
+    {
+        "amount": 4.0,
+        "category": "Misc",
+        "date": "2026-06-01"
     }
 ]
