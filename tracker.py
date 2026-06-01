@@ -1,4 +1,5 @@
 import json
+import csv
 from datetime import datetime
 
 class Expense:
@@ -64,15 +65,36 @@ class ExpenseTracker:
         for cat, amt in category_totals.items():
             print(f"• {cat}: {amt:.2f}€")
 
+def export_to_csv(self, csv_filename="expenses.csv"):
+        """Exports expenses to a CSV file compatible with Excel"""
+        if not self.expenses:
+            print("Error: No expenses found to export.")
+            return
+        
+        try:
+            with open(csv_filename, "w", newline="", encoding="utf-8-sig") as f:
+                writer = csv.writer(f)
+                # Write column headers
+                writer.writerow(["Date", "Category", "Amount (€)"])
+                
+                # Write data rows
+                for e in self.expenses:
+                    writer.writerow([e.date, e.category, e.amount])
+                    
+            print(f"Success: Report successfully exported to '{csv_filename}'.")
+        except Exception as e:
+            print(f"Error occurred during export: {e}")
+
 # --- INPUT VALIDATION & CLI LOOP ---
 def main():
     tracker = ExpenseTracker()
     
     while True:
         print("\nExpense Tracker Options:")
-        print("1. Add an expense")
+        print("1. Add expense")
         print("2. View report")
-        print("3. Exit")
+        print("3. Export to CSV (Excel)")
+        print("4. Exit")
         
         choice = input("Select action (1, 2 or 3): ").strip()
         
@@ -98,10 +120,12 @@ def main():
         elif choice == "2":
             tracker.show_report()
         elif choice == "3":
+            tracker.export_to_csv()
+        elif choice == "4":
             print("Goodbye!")
             break
         else:
-            print("Please choose 1, 2 or 3.")
+            print("Please choose 1, 2, 3 or 4.")
 
 if __name__ == "__main__":
     main()
